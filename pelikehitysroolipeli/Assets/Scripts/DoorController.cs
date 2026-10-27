@@ -3,7 +3,7 @@ using UnityEngine.Rendering;
 
 public class DoorController : MonoBehaviour
 {
-    // Kuvat oven eri tiloille
+    
     [SerializeField] Sprite ClosedDoorSprite;
     [SerializeField] Sprite OpenDoorSprite;
     [SerializeField] Sprite LockedSprite;
@@ -11,18 +11,18 @@ public class DoorController : MonoBehaviour
 
     BoxCollider2D colliderComp;
 
-    // Näitä värejä käytetään lukkosymbolin piirtämiseen.
+    
     public static Color lockedColor;
     public static Color openColor;
 
-    SpriteRenderer doorSprite; // Oven kuva
-    SpriteRenderer lockSprite; // Lapsi gameobjectissa oleva lukon kuva
+    SpriteRenderer doorSprite; 
+    SpriteRenderer lockSprite;
 
-    // Oven tilat
+    
     private bool isOpen = false;
     private bool isLocked = false;
 
-    // Debug ui
+    
     [SerializeField] bool ShowDebugUI;
     [SerializeField] int DebugFontSize = 32;
 
@@ -48,14 +48,12 @@ public class DoorController : MonoBehaviour
         lockedColor = new Color(1.0f, 0.63f, 0.23f);
         openColor = new Color(0.5f, 0.8f, 1.0f);
 
-        // Oven alkutila: kiinni ja avattu
+        
         CloseDoor();
         UnlockDoor();
     }
 
-    /// <summary>
-    /// Oveen kohdistuu jokin toiminto joka muuttaa sen tilaa
-    /// </summary>
+   
     public void ReceiveAction(DoorAction action)
     {
         switch (action)
